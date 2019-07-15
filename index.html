@@ -1,0 +1,32 @@
+<script>
+    function computerPlay(){
+        let x = Math.floor(Math.random() * 3)
+        return (x == 2 ? 'Rock' : (x == 1) ? 'Paper' : (x == 0) ? 'Scissors' : 'Somethihing is Wrong!')
+    }
+
+    function playRound(playerSelection, computerSelection){
+        let user = playerSelection.toLowerCase()
+        let comp = computerSelection.toLowerCase()
+        
+        if(user == 'rock' && comp == 'paper'){
+            return 'You Lose! Paper beats Rock'  
+        } else if (user == 'paper' && comp == 'rock') {
+            return 'You Win! Paper beats Rock'
+        } else if (user == 'rock' && comp == 'scissors'){
+            return 'You Win! Rock beats Scissors'
+        } else if (user == 'paper' && comp == 'scissors'){
+            return 'You Lose! Scissors beats Paper'
+        } else if (user == 'scissors' && comp == 'paper'){
+            return 'You Win! Scissors beats Paper'
+        } else if (user == 'scissors' && comp == 'rock'){
+            return 'You Lose! Rock beats Scissors'
+        } else return 'Draw! Choose again'
+
+    } 
+
+    
+
+    
+
+
+</script>
