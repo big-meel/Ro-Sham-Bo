@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Rock, Paper, Scissors!</title>
+ </head>   
 <script>
     function computerPlay(){
         let x = Math.floor(Math.random() * 3)
@@ -22,11 +27,48 @@
             return 'You Lose! Rock beats Scissors'
         } else return 'Draw! Choose again'
 
-    } 
+    }
 
-    
+    function game(){
 
-    
+        let count = 1
+        let userScore
+        let compScore
+        let playerChoice
+
+        for (i = 0; i < 5; i++){   
+              playerChoice = askChoice(round(count))
+              if (playRound(playerChoice, computerPlay).indexOf('Win') >= 0){
+                  userScore++;
+                  count++;
+              } else if(playRound(playerChoice, computerPlay).indexOf('Lose') >= 0){
+                  compScore++;
+                  count++;
+              } else if (playRound(playerChoice, computerPlay).indexOf('Draw') >= 0){
+                  i = count;
+              }
+              
+          }
+    }           
+
+
+    function askChoice(str){
+           let option
+           return option = prompt('' + str + '\nRock, Paper, Scissors?')
+    }
+
+    function round(a){
+        console.log( a == 1 ? "Round 1: " : a == 2 ? 'Round 2:  ' :
+        a == 3 ? 'Round 3: ' : a == 4 ? 'Round 4: ' : a == 5 ? 'Round 5: ' : 'End of Game: ')
+    }
+
+    function winner(x, y){
+        if (x > y){
+            console.log(x + '/' + y + '\n \n You WIN!! :D')
+        } else {console.log(x + '/' + y + '\n \n You LOSE! :(')}
+    }
 
 
 </script>
+
+</html>
