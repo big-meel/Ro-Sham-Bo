@@ -4,11 +4,14 @@
      <title>Rock, Paper, Scissors!</title>
  </head>   
 <script>
+
+    //Generates random choice for computer
     function computerPlay(){
         let x = Math.floor(Math.random() * 3)
         return (x == 2 ? 'rock' : (x == 1) ? 'paper' : (x == 0) ? 'scissors' : 'Somethihing is Wrong!')
     }
 
+    //Compares user choice against computer choice and returns win/loss alert
     function playRound(playerSelection, computerSelection){
         
         let comp = computerSelection
@@ -30,6 +33,7 @@
 
     }
 
+    //Main game function
     function game(){
 
         let count = 1
@@ -59,18 +63,21 @@
         console.log('Game Over! \n\n' + winner(userScore, compScore))  
     }    
 
-
-
+    // Helper functions
+     
+    //Prompts user to choose 'rock, paper or scissors'
     function askChoice(){
            let option
            return option = prompt('Rock, Paper, Scissors?')
     }
 
+    //Keep track of round during games (not currently in use)
     function round(a){
         console.log( a == 1 ? "Round 1: " : a == 2 ? 'Round 2:  ' :
         a == 3 ? 'Round 3: ' : a == 4 ? 'Round 4: ' : a == 5 ? 'Round 5: ' : 'End of Game: ')
     }
 
+    //Tally Player Wins vs Computer Wins and returns overall winner
     function winner(x, y){
         if (x > y){
             return ('Player: ' + x + ' | Computer: ' + y + '\n \n You WIN!! :D')
