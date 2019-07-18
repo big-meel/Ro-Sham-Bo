@@ -6,13 +6,14 @@
 <script>
     function computerPlay(){
         let x = Math.floor(Math.random() * 3)
-        return (x == 2 ? 'Rock' : (x == 1) ? 'Paper' : (x == 0) ? 'Scissors' : 'Somethihing is Wrong!')
+        return (x == 2 ? 'rock' : (x == 1) ? 'paper' : (x == 0) ? 'scissors' : 'Somethihing is Wrong!')
     }
 
     function playRound(playerSelection, computerSelection){
-        let user = playerSelection.toLowerCase()
-        let comp = computerSelection.toLowerCase()
         
+        let comp = computerSelection
+        let user = playerSelection.toLowerCase()
+
         if(user == 'rock' && comp == 'paper'){
             return 'You Lose! Paper beats Rock'  
         } else if (user == 'paper' && comp == 'rock') {
@@ -32,29 +33,37 @@
     function game(){
 
         let count = 1
-        let userScore
-        let compScore
+        let userScore = 0
+        let compScore = 0
         let playerChoice
+        let compChoice
 
-        for (i = 0; i < 5; i++){   
-              playerChoice = askChoice(round(count))
-              if (playRound(playerChoice, computerPlay).indexOf('Win') >= 0){
+        for (i = 0; i < 5; i++){  
+              compChoice = computerPlay(); 
+              playerChoice = askChoice();
+              
+              if (playRound(playerChoice, compChoice).indexOf('Win') >= 0){
+                  console.log(playRound(playerChoice, compChoice))
                   userScore++;
                   count++;
-              } else if(playRound(playerChoice, computerPlay).indexOf('Lose') >= 0){
+              } else if(playRound(playerChoice, compChoice).indexOf('Lose') >= 0){
+                  console.log(playRound(playerChoice, compChoice))
                   compScore++;
                   count++;
-              } else if (playRound(playerChoice, computerPlay).indexOf('Draw') >= 0){
-                  i = count;
+              } else if (playRound(playerChoice, compChoice).indexOf('Draw') >= 0){
+                  console.log(playRound(playerChoice, compChoice))
+                  i--;
               }
               
           }
-    }           
+        console.log('Game Over! \n\n' + winner(userScore, compScore))  
+    }    
 
 
-    function askChoice(str){
+
+    function askChoice(){
            let option
-           return option = prompt('' + str + '\nRock, Paper, Scissors?')
+           return option = prompt('Rock, Paper, Scissors?')
     }
 
     function round(a){
@@ -64,8 +73,8 @@
 
     function winner(x, y){
         if (x > y){
-            console.log(x + '/' + y + '\n \n You WIN!! :D')
-        } else {console.log(x + '/' + y + '\n \n You LOSE! :(')}
+            return ('Player: ' + x + ' | Computer: ' + y + '\n \n You WIN!! :D')
+        } else {return ('Player: ' + x + ' | Computer: ' + y + '\n \n You LOSE! :')}
     }
 
 
