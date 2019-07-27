@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
- <head>
+ <head>     
      <title>Rock, Paper, Scissors!</title>
+     <meta charset="UTF=8">
  </head>   
 <script>
     function computerPlay(){
@@ -30,7 +31,7 @@
 
     }
 
-    function game(){
+    /*function game(){
 
         let count = 1
         let userScore = 0
@@ -57,7 +58,7 @@
               
           }
         console.log('Game Over! \n\n' + winner(userScore, compScore))  
-    }    
+    }*/    
 
 
 
@@ -66,10 +67,10 @@
            return option = prompt('Rock, Paper, Scissors?')
     }
 
-    function round(a){
+    /*function round(a){
         console.log( a == 1 ? "Round 1: " : a == 2 ? 'Round 2:  ' :
         a == 3 ? 'Round 3: ' : a == 4 ? 'Round 4: ' : a == 5 ? 'Round 5: ' : 'End of Game: ')
-    }
+    }*/
 
     function winner(x, y){
         if (x > y){
