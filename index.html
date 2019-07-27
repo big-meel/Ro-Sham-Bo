@@ -3,82 +3,21 @@
  <head>     
      <title>Rock, Paper, Scissors!</title>
      <meta charset="UTF=8">
- </head>   
-<script>
-    function computerPlay(){
-        let x = Math.floor(Math.random() * 3)
-        return (x == 2 ? 'rock' : (x == 1) ? 'paper' : (x == 0) ? 'scissors' : 'Somethihing is Wrong!')
-    }
+ </head>
+ 
+ <body>
 
-    function playRound(playerSelection, computerSelection){
-        
-        let comp = computerSelection
-        let user = playerSelection.toLowerCase()
+    <h2>Rock,Paper, Scissors</h2>
 
-        if(user == 'rock' && comp == 'paper'){
-            return 'You Lose! Paper beats Rock'  
-        } else if (user == 'paper' && comp == 'rock') {
-            return 'You Win! Paper beats Rock'
-        } else if (user == 'rock' && comp == 'scissors'){
-            return 'You Win! Rock beats Scissors'
-        } else if (user == 'paper' && comp == 'scissors'){
-            return 'You Lose! Scissors beats Paper'
-        } else if (user == 'scissors' && comp == 'paper'){
-            return 'You Win! Scissors beats Paper'
-        } else if (user == 'scissors' && comp == 'rock'){
-            return 'You Lose! Rock beats Scissors'
-        } else return 'Draw! Choose again'
+    <div id='container'>
+        <button class='rock'>Rock</button>
+        <button class='paper'>Paper</button>
+        <button class='scissors'>Scissors</button>
+    </div>
 
-    }
+    <div id='interface'></div>
 
-    /*function game(){
+ <script src='script.js'></script>
 
-        let count = 1
-        let userScore = 0
-        let compScore = 0
-        let playerChoice
-        let compChoice
-
-        for (i = 0; i < 5; i++){  
-              compChoice = computerPlay(); 
-              playerChoice = askChoice();
-              
-              if (playRound(playerChoice, compChoice).indexOf('Win') >= 0){
-                  console.log(playRound(playerChoice, compChoice))
-                  userScore++;
-                  count++;
-              } else if(playRound(playerChoice, compChoice).indexOf('Lose') >= 0){
-                  console.log(playRound(playerChoice, compChoice))
-                  compScore++;
-                  count++;
-              } else if (playRound(playerChoice, compChoice).indexOf('Draw') >= 0){
-                  console.log(playRound(playerChoice, compChoice))
-                  i--;
-              }
-              
-          }
-        console.log('Game Over! \n\n' + winner(userScore, compScore))  
-    }*/    
-
-
-
-    function askChoice(){
-           let option
-           return option = prompt('Rock, Paper, Scissors?')
-    }
-
-    /*function round(a){
-        console.log( a == 1 ? "Round 1: " : a == 2 ? 'Round 2:  ' :
-        a == 3 ? 'Round 3: ' : a == 4 ? 'Round 4: ' : a == 5 ? 'Round 5: ' : 'End of Game: ')
-    }*/
-
-    function winner(x, y){
-        if (x > y){
-            return ('Player: ' + x + ' | Computer: ' + y + '\n \n You WIN!! :D')
-        } else {return ('Player: ' + x + ' | Computer: ' + y + '\n \n You LOSE! :')}
-    }
-
-
-</script>
-
+</body>
 </html>
