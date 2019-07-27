@@ -41,11 +41,13 @@ const buttons = Array.from(document.querySelectorAll('button'));
 buttons.forEach(button => button.addEventListener('click', function(e){
     e = e.target.classList[0];
     let outcome = playRound(e,computerPlay());
-    let choices = document.createElement('div');
+    const choices = document.createElement('div');
 
     choices.textContent = outcome;
 
     container.appendChild(choices);
 }));
 
+const interface = document.createElement('div');
+interface.classList.add('score');
 
