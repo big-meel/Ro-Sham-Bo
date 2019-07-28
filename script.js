@@ -24,10 +24,6 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-function askChoice(){
-       let option
-       return option = prompt('Rock, Paper, Scissors?');
-}
 
 function winner(x, y){
     if (x > y){
@@ -36,18 +32,38 @@ function winner(x, y){
 }
 
 const container = document.querySelector('#container');
+const buttons = Array.from(document.querySelectorAll('button'));
+const choices = document.createElement('div');
+const results = document.createElement('p');
 
-const buttons = Array.from(document.querySelectorAll('button')); 
+let gamesWon = 0;
+let gamesLost = 0;
+
+
+container.appendChild(choices);
+
 buttons.forEach(button => button.addEventListener('click', function(e){
-    e = e.target.classList[0];
-    let outcome = playRound(e,computerPlay());
-    const choices = document.createElement('div');
+        e = e.target.classList[0];
+        let outcome = playRound(e,computerPlay()); 
+        choices.textContent = outcome;
 
-    choices.textContent = outcome;
-
-    container.appendChild(choices);
+        function newMessage(){
+            results.textContent = 'Win: ' + gamesWon + 'Lose: ' + gamesLost;
+            choices.appendChild(results); 
+            container.replaceChild(choices);
+        }
+        
+        if (gamesWon === 5 || gamesLost === 5){
+            results.textContent = winner(gamesWon, gamesLost);
+            choices.appendChild(results);
+            container.replaceChild(choices);
+        }else if (outcome.indexOf('Win') >= 0){
+            gamesWon++;
+            return newMessage();
+        } else if(outcome.indexOf('Lose') >= 0){
+            gamesLost++;
+            return newMessage();
+        } else if (outcome.indexOf('Draw') >= 0){
+            return newMessage();
+        }         
 }));
-
-const interface = document.createElement('div');
-interface.classList.add('score');
-
