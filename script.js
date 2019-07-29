@@ -41,6 +41,7 @@ let gamesLost = 0;
 
 
 container.appendChild(choices);
+choices.setAttribute('style', 'color: white; font-size: 25px; position: absolute; bottom: 20%; left: 35.8%');
 
 buttons.forEach(button => button.addEventListener('click', function(e){
         e = e.target.classList[0];
