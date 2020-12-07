@@ -1,4 +1,4 @@
-This is a Game of Rock, Paper, Scissors created using Javascript.
+This is a Game of Rock, Paper, Scissors created built from vanilla Javascript.
 
 Picked up a few tricks for manipulating the DOM during this project although it wasn't anything extraordinary.
 
